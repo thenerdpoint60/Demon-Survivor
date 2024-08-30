@@ -11,6 +11,7 @@ namespace VampireSurvivor
         {
             playerMovable = GetComponent<IMovable>();
         }
+
         private void Reset()
         {
             if (GetComponent<IMovable>() == null)
