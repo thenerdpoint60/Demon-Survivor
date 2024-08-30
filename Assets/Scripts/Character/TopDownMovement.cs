@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VampireSurvivor
 {
-    public class TopDownMovement : MonoBehaviour, IMovable
+    public class TopDownMovement : MonoBehaviour, IMovable, IMovableState
     {
         [SerializeField] private Rigidbody2D characterRigidBody;
         [SerializeField] private float moveSpeed = 5f;
@@ -12,9 +12,11 @@ namespace VampireSurvivor
 
         private Tweener movementTween;
 
+        public Vector2 CurrentPosition => characterRigidBody.position;
+
         public void Move(Vector2 moveDirection)
         {
-            Vector2 targetPosition = characterRigidBody.position + moveDirection.normalized * moveSpeed;
+            Vector2 targetPosition = CurrentPosition + moveDirection.normalized * moveSpeed;
             bool isMoving = movementTween != null && !movementTween.IsComplete();
             if (!isMoving)
             {
@@ -22,17 +24,18 @@ namespace VampireSurvivor
                     .SetEase(ease)
                     .SetSpeedBased(true)
                     .SetAutoKill(false)
-                    .Pause()
-                    .OnComplete(() =>
-                    {
-                        Move(moveDirection);
-                    });
+                    .Pause();
             }
+            movementTween.OnComplete(() =>
+            {
+                Move(moveDirection);
+            });
 
             movementTween.ChangeEndValue(targetPosition, moveSpeed, true).Restart();
 
             //TODO : Refactor this animator from top down.
-            animator.SetBool("Moving", true);
+            if (animator != null)
+                animator.SetBool("Moving", true);
         }
 
         public void StopMoving()
@@ -42,7 +45,9 @@ namespace VampireSurvivor
 
             movementTween.Kill();
             movementTween = null;
-            animator.SetBool("Moving", false);
+
+            if (animator != null)
+                animator.SetBool("Moving", false);
         }
     }
 }
