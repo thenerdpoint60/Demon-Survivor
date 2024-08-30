@@ -17,6 +17,7 @@ namespace VampireSurvivor
 
         private void Start()
         {
+            //TODO : Make a courotine
             InvokeRepeating(nameof(FollowPlayer), 0, 0.1f);
         }
 
