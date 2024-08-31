@@ -5,39 +5,29 @@ namespace VampireSurvivor
 {
     public class CharacterHealth : MonoBehaviour, IHealth
     {
-        [SerializeField] private int maxHealth;
-        [SerializeField] private int currentHealth;
+        [SerializeField] private CharacterHealthSO healthStats;
 
         private void OnEnable()
         {
-            currentHealth = maxHealth;
+            healthStats.ResetHealth();
         }
 
         public virtual void Heal(int health)
         {
-            currentHealth += health;
-            if (currentHealth > maxHealth)
-                currentHealth = maxHealth;
+            healthStats.Heal(health);
         }
 
         public virtual void Damage(int damage)
         {
-            currentHealth -= damage;
-            if (currentHealth < 0)
-                currentHealth = 0;
+            healthStats.Damage(damage);
         }
 
         public bool HasDied()
         {
-            return currentHealth <= 0;
+            return healthStats.HasDied();
         }
 
-        public void UpgradeMaxHealth(int newMaxHealth)
-        {
-            maxHealth = newMaxHealth;
-        }
-
-        public int GetCurrentHealth => currentHealth;
-        public int GetMaxHealth => maxHealth;
+        public int GetCurrentHealth => healthStats.CurrentHealth;
+        public int GetMaxHealth => healthStats.MaxHealth;
     }
 }
