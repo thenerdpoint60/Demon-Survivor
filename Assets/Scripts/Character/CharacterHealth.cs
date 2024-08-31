@@ -38,5 +38,6 @@ namespace VampireSurvivor
         }
 
         public int GetCurrentHealth => currentHealth;
+        public int GetMaxHealth => maxHealth;
     }
 }
