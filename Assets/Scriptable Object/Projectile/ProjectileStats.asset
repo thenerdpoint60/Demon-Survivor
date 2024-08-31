@@ -15,3 +15,4 @@ MonoBehaviour:
   speed: 15
   damage: 20
   increaseDamageBy: 5
+  projectileDuration: 3

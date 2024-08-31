@@ -8,11 +8,13 @@ namespace VampireSurvivor
         [SerializeField] private int speed = 5;
         [SerializeField] private int damage = 10;
         [SerializeField] private int increaseDamageBy = 5;
+        [SerializeField] private float projectileDuration = 5f;
 
         public int Speed => speed;
 
         public int Damage => damage;
         public int IncreaseDamageBy => increaseDamageBy;
+        public float ProjectileDuration => projectileDuration;
 
         public void IncreaseDamage()
         {

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace VampireSurvivor
@@ -7,6 +8,23 @@ namespace VampireSurvivor
         [SerializeField] private ProjectileStatsSO stats;
 
         private Vector2 direction;
+        private WaitForSeconds waitForSecondsBeforeSelfDestruct;
+
+        private void Awake()
+        {
+            waitForSecondsBeforeSelfDestruct = new WaitForSeconds(stats.ProjectileDuration);
+        }
+
+        private void OnEnable()
+        {
+            StartCoroutine(SelfDestruct());
+        }
+
+        private IEnumerator SelfDestruct()
+        {
+            yield return waitForSecondsBeforeSelfDestruct;
+            ReturnToPool();
+        }
 
         public void SetDirection(Vector2 dir)
         {
@@ -29,13 +47,18 @@ namespace VampireSurvivor
             if (damageable != null)
             {
                 damageable.Damage(stats.Damage);
-                PoolManager.Instance.ReturnToPool(GamePoolType.Projectile, gameObject);
             }
+            ReturnToPool();
         }
 
         private void OnDisable()
         {
             direction = Vector2.zero;
+        }
+
+        private void ReturnToPool()
+        {
+            PoolManager.Instance.ReturnToPool(GamePoolType.Projectile, gameObject);
         }
     }
 }
