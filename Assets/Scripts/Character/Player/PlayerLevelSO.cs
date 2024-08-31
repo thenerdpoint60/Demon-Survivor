@@ -31,6 +31,8 @@ namespace VampireSurvivor
                 return;
 
             currentXPCollected += amount;
+            float currentLevelXP = (float)currentXPCollected / (xpForEachLevel * currentPlayerLevel);
+            EventManager.TriggerEvent(GameEvents.XPCollected, currentLevelXP);
             Debug.Log("XP Rewarded To Player");
             if (HasPlayerLeveledUp())
             {
