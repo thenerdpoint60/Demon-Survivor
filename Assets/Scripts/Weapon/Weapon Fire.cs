@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,28 @@ namespace VampireSurvivor
 
         private float nextFireTime = 0f;
         private List<Collider2D> targetColliders = new();
+        private bool pauseFiring;
+
+        private void OnEnable()
+        {
+            EventManager.StartListening(GameEvents.GamePause, OnGamePauseStateChange);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening(GameEvents.GamePause, OnGamePauseStateChange);
+        }
+
+        private void OnGamePauseStateChange(object obj)
+        {
+            pauseFiring = (bool)obj;
+        }
 
         private void Update()
         {
+            if (pauseFiring)
+                return;
+
             if (Time.time >= nextFireTime && targetColliders.Count > 0)
             {
                 Collider2D nearestTarget = FindNearestTarget();

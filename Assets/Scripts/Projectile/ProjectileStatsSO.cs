@@ -12,6 +12,7 @@ namespace VampireSurvivor
         public int Speed => speed;
 
         public int Damage => damage;
+        public int IncreaseDamageBy => increaseDamageBy;
 
         public void IncreaseDamage()
         {

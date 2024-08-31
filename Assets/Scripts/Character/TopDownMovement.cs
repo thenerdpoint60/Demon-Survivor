@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 namespace VampireSurvivor
@@ -11,11 +12,30 @@ namespace VampireSurvivor
         [SerializeField] private Animator animator;
 
         private Tweener movementTween;
+        private bool pauseMovement = false;
 
         public Vector2 CurrentPosition => characterRigidBody.position;
 
+        private void OnEnable()
+        {
+            EventManager.StartListening(GameEvents.GamePause, OnGamePauseStateChange);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening(GameEvents.GamePause, OnGamePauseStateChange);
+        }
+
+        private void OnGamePauseStateChange(object obj)
+        {
+            pauseMovement = (bool)obj;
+        }
+
         public void Move(Vector2 moveDirection)
         {
+            if (pauseMovement)
+                return;
+
             Vector2 targetPosition = CurrentPosition + moveDirection.normalized * moveSpeed;
             bool isMoving = movementTween != null && !movementTween.IsComplete();
             if (!isMoving)
