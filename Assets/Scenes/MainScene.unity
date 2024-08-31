@@ -1758,14 +1758,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolConfigs:
   - poolKey: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 5884379328155846235, guid: b8ed47bf4bcac5a4b9513c69f0127ae8, type: 3}
     initialSize: 10
   - poolKey: 3
-    prefab: {fileID: 0}
+    prefab: {fileID: 863020067778182794, guid: bb050ba08312a3e4381e7e072ad57d0a, type: 3}
     initialSize: 10
   - poolKey: 1
-    prefab: {fileID: 0}
-    initialSize: 10
+    prefab: {fileID: 6273424703327921253, guid: 5ea62073c0d099e458f11146ccf48972, type: 3}
+    initialSize: 15
 --- !u!1 &805605854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,6 +3345,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1746949300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1746949301}
+  - component: {fileID: 1746949302}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1746949301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746949300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746949302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746949300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635424ed064b0ad47893d7e25fb4227a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDatas:
+  - {fileID: 11400000, guid: a880755274cc72f4d80921753bf45f6a, type: 2}
+  spawnPositions:
+  - {fileID: 1172268787}
+  - {fileID: 1756288651}
+  - {fileID: 671653473}
+  - {fileID: 62837641}
 --- !u!1 &1756288650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,3 +4129,4 @@ SceneRoots:
   - {fileID: 534435604}
   - {fileID: 130828698}
   - {fileID: 614276685}
+  - {fileID: 1746949301}
