@@ -28,7 +28,7 @@ namespace VampireSurvivor
         {
             foreach (var config in poolConfigs)
             {
-                CreatePool(config.prefab, config.initialSize, config.poolKey);
+                CreatePool(config.Prefab, config.InitialSize, config.PoolKey);
             }
         }
 

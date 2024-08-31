@@ -4,6 +4,6 @@ namespace VampireSurvivor
 {
     public interface ICollectable
     {
-        public void Reward();
+        public void Collect();
     }
 }

@@ -5,8 +5,12 @@ namespace VampireSurvivor
     [System.Serializable]
     public class PoolConfig
     {
-        public GamePoolType poolKey;
-        public GameObject prefab;
-        public int initialSize;
+        [SerializeField] private GamePoolType poolKey;
+        [SerializeField] private GameObject prefab;
+        [SerializeField] private int initialSize;
+
+        public int InitialSize => initialSize;
+        public GameObject Prefab => prefab;
+        public GamePoolType PoolKey => poolKey;
     }
 }

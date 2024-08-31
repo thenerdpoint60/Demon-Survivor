@@ -10,6 +10,7 @@ namespace VampireSurvivor
 
         [SerializeField] private float scaleUpFactor = 0.9f;
         [SerializeField] private float animationDuration = 0.7f;
+        [SerializeField] private Ease ease = Ease.Linear;
 
         private AudioSource audioSource;
         private Tweener moveTween;
@@ -25,10 +26,10 @@ namespace VampireSurvivor
         private void OnEnable()
         {
             scaleTween = transform.DOScale(scaleUpFactor, animationDuration / 2)
-                        .SetEase(Ease.OutQuad)
+                        .SetEase(ease)
                         .OnComplete(() =>
                         {
-                            transform.DOScale(currentScale, animationDuration / 2).SetEase(Ease.InQuad);
+                            transform.DOScale(currentScale, animationDuration / 2).SetEase(ease);
                         })
                         .SetLoops(-1, LoopType.Yoyo);
         }
@@ -43,7 +44,7 @@ namespace VampireSurvivor
                {
                    if (rewardClip != null)
                        audioSource.PlayOneShot(rewardClip);
-                   collider2D.GetComponent<ICollectable>().Reward();
+                   collider2D.GetComponent<ICollectable>().Collect();
                    PoolManager.Instance.ReturnToPool(GamePoolType.XP, gameObject);
                });
         }
