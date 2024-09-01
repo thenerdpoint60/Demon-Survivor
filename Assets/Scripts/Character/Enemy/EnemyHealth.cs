@@ -11,11 +11,6 @@ namespace VampireSurvivor
         [SerializeField] private GameObject parentTransform;
         [SerializeField] private Animator enemyAnimator;
 
-        private void OnEnable()
-        {
-            StartMovingAnimation();
-        }
-
         public override void Damage(int damage)
         {
             base.Damage(damage);

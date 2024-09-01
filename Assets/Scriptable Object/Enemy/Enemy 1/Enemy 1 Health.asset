@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy 1 Health
   m_EditorClassIdentifier: 
   maxHealth: 30
-  currentHealth: 0
+  currentHealth: 30
   upgradeMaxHealthBy: 0

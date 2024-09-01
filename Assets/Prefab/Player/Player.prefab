@@ -121,6 +121,7 @@ MonoBehaviour:
   moveSpeed: 10
   ease: 1
   animator: {fileID: 2296569154791352428}
+  characterBody: {fileID: 5558584805038996317}
 --- !u!114 &6428516763246672869
 MonoBehaviour:
   m_ObjectHideFlags: 0

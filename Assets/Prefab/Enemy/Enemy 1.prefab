@@ -109,6 +109,7 @@ MonoBehaviour:
   moveSpeed: 5
   ease: 1
   animator: {fileID: 8345632688730986832}
+  characterBody: {fileID: 8388842900336154543}
 --- !u!1 &944930876774493097
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthStats: {fileID: 11400000, guid: 0c7c2d31696339f4a90dd1926035d985, type: 2}
+  currentHealth: 0
   onHealthUpdated:
     m_PersistentCalls:
       m_Calls:
