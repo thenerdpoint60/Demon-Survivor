@@ -7,16 +7,6 @@ using Random = UnityEngine.Random;
 
 namespace VampireSurvivor
 {
-    [System.Serializable]
-    public class OptionUI
-    {
-        [SerializeField] private Button optionButton;
-        [SerializeField] private TMP_Text optionText;
-
-        public Button OptionButton => optionButton;
-        public TMP_Text OptionText => optionText;
-    }
-
     public class GameUpgradePanel : MonoBehaviour
     {
         [SerializeField] private GameObject upgradePanel;
@@ -38,12 +28,9 @@ namespace VampireSurvivor
             {
                 OptionUI optionUI = optionUIList[i];
                 IUpgradeOption upgradeOption = GetRandomOption();
-                optionUI.OptionText.text = upgradeOption.ReadUpgrade();
-                optionUI.OptionButton.onClick.AddListener(() =>
+                optionUI.SetOption(upgradeOption, () =>
                 {
-                    upgradeOption.Upgrade();
                     ToggleGamePauseState(false);
-                    ClearTheUpgradeOptions();
                     ToggleUpgradePanel(false);
                 });
             }
@@ -54,7 +41,7 @@ namespace VampireSurvivor
             for (int i = 0; i < optionUIList.Count; i++)
             {
                 OptionUI optionUI = optionUIList[i];
-                optionUI.OptionButton.onClick.RemoveAllListeners();
+                optionUI.ClearTheUpgradeOption();
             }
             currentUpgradeOptions.Clear();
         }
