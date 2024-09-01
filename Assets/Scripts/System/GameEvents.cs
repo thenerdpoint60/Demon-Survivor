@@ -8,6 +8,7 @@ namespace VampireSurvivor
         FiringCooldown,
         PlayerLevelUp,
         XPCollected,
-        GamePause
+        GamePause,
+        PlayerWon
     }
 }
