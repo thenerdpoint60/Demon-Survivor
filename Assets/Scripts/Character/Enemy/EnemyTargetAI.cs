@@ -7,18 +7,36 @@ namespace VampireSurvivor
     {
         [SerializeField] private PositionReferenceSO target;
         [SerializeField] private Transform enemyTransform;
+        [SerializeField] private float playerFollowUpdateDelaySec = 0.2f;
 
         private IMovable enemyMovable;
+        private bool isFollowingPlayer = true;
 
         private void Awake()
         {
             enemyMovable = GetComponent<IMovable>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            //TODO : Make a courotine
-            InvokeRepeating(nameof(FollowPlayer), 0, 0.1f);
+            isFollowingPlayer = true;
+            StartCoroutine(FollowPlayerAlways());
+        }
+
+        private void OnDisable()
+        {
+            isFollowingPlayer = false;
+        }
+
+        private IEnumerator FollowPlayerAlways()
+        {
+            WaitForSeconds waitForSeconds = new WaitForSeconds(playerFollowUpdateDelaySec);
+            while (true)
+            {
+                yield return waitForSeconds;
+                if (isFollowingPlayer)
+                    FollowPlayer();
+            }
         }
 
         private void Reset()
@@ -37,7 +55,13 @@ namespace VampireSurvivor
             Vector2 targetPosition = target.PositionReference;
             Vector2 direction = (targetPosition - (Vector2)enemyTransform.position);
             enemyMovable.Move(direction);
+        }
 
+        public void StopMovement()
+        {
+            isFollowingPlayer = false;
+            StopCoroutine(FollowPlayerAlways());
+            enemyMovable.StopMoving();
         }
     }
 }

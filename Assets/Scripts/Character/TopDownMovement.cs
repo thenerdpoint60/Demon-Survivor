@@ -30,6 +30,7 @@ namespace VampireSurvivor
 
         private void OnDisable()
         {
+            StopMoving();
             EventManager.StopListening(GameEvents.GamePause, OnGamePauseStateChange);
         }
 
