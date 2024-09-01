@@ -1,40 +1,31 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace VampireSurvivor
 {
+    [System.Serializable]
+    public class OptionUI
+    {
+        [SerializeField] private Button optionButton;
+        [SerializeField] private TMP_Text optionText;
+
+        public Button OptionButton => optionButton;
+        public TMP_Text OptionText => optionText;
+    }
+
     public class GameUpgradePanel : MonoBehaviour
     {
         [SerializeField] private GameObject upgradePanel;
 
-        [Header("Player Health Upgrade")]
-        [SerializeField] private CharacterHealthSO playerHealthSO;
-        [SerializeField] private Button playerHealthUpgradeButton;
-        [SerializeField] private TMP_Text playerHealthUpgradeText;
+        [SerializeField] private List<OptionUI> optionUIList;
 
-        [Header("Weapon Damage Upgrade")]
-        [SerializeField] private ProjectileStatsSO projectileStatsSO;
-        [SerializeField] private Button weaponDamageUpgrade;
-        [SerializeField] private TMP_Text weaponDamageUpgradeText;
+        [SerializeField] private List<UpgradeOption> upgradeOptions;
 
-        [Header("Weapon Fire Upgrade")]
-        [SerializeField] private WeaponStatsSO weaponStatsSO;
-        [SerializeField] private Button weaponFireRateUpgrade;
-        [SerializeField] private TMP_Text weaponFireRateUpgradeText;
-
-        private void Start()
-        {
-            InitializeUpgradeButtons();
-        }
-
-        private void InitializeUpgradeButtons()
-        {
-            playerHealthUpgradeButton.onClick.AddListener(() => UpgradePlayerHealth());
-            weaponDamageUpgrade.onClick.AddListener(() => UpgradeWeaponDamage());
-            weaponFireRateUpgrade.onClick.AddListener(() => UpgradeWeaponFireRate());
-        }
+        private List<UpgradeOption> currentUpgradeOptions = new();
 
         private void OnEnable()
         {
@@ -43,17 +34,44 @@ namespace VampireSurvivor
 
         private void SetUpUpgradePanel()
         {
-            playerHealthUpgradeButton.gameObject.SetActive(true);
-            playerHealthUpgradeText.text = $"INCREASE MAX HEALTH FROM {playerHealthSO.MaxHealth} <color=#00FF00><b> TO {playerHealthSO.MaxHealth + playerHealthSO.UpgradeMaxHealthBy}</b></color>";
-            if (playerHealthSO.CurrentHealth >= playerHealthSO.MaxHealth)
-                playerHealthUpgradeButton.gameObject.SetActive(false);
+            for (int i = 0; i < optionUIList.Count; i++)
+            {
+                OptionUI optionUI = optionUIList[i];
+                IUpgradeOption upgradeOption = GetRandomOption();
+                optionUI.OptionText.text = upgradeOption.ReadUpgrade();
+                optionUI.OptionButton.onClick.AddListener(() =>
+                {
+                    upgradeOption.Upgrade();
+                    ToggleGamePauseState(false);
+                    ClearTheUpgradeOptions();
+                    ToggleUpgradePanel(false);
+                });
+            }
+        }
 
-            weaponDamageUpgradeText.text = $"INCREASE WEAPON DAMAGE {projectileStatsSO.Damage} <color=#00FF00><b> TO {projectileStatsSO.Damage + projectileStatsSO.IncreaseDamageBy}</b></color>";
+        private void ClearTheUpgradeOptions()
+        {
+            for (int i = 0; i < optionUIList.Count; i++)
+            {
+                OptionUI optionUI = optionUIList[i];
+                optionUI.OptionButton.onClick.RemoveAllListeners();
+            }
+            currentUpgradeOptions.Clear();
+        }
 
-            weaponFireRateUpgrade.gameObject.SetActive(true);
-            weaponFireRateUpgradeText.text = $"DECREASE FIRE COOLDOWN {weaponStatsSO.FireRate} <color=#00FF00><b> TO {weaponStatsSO.FireRate + weaponStatsSO.DecreaseFireRateBy}</b></color>";
-            if (weaponStatsSO.FireRate <= 0.1f)
-                weaponFireRateUpgrade.gameObject.SetActive(false);
+        private IUpgradeOption GetRandomOption()
+        {
+            int randomNumber = Random.Range(0, optionUIList.Count);
+            UpgradeOption upgradeOption = upgradeOptions[randomNumber];
+            if (!currentUpgradeOptions.Contains(upgradeOption))
+            {
+                currentUpgradeOptions.Add(upgradeOption);
+            }
+            else
+            {
+                return GetRandomOption();
+            }
+            return upgradeOption;
         }
 
         private void OnDisable()
@@ -64,29 +82,13 @@ namespace VampireSurvivor
         private void OnPlayerLevelUp(object obj)
         {
             SetUpUpgradePanel();
-            upgradePanel.SetActive(true);
+            ToggleUpgradePanel(true);
             ToggleGamePauseState(true);
         }
 
-        private void UpgradePlayerHealth()
+        private void ToggleUpgradePanel(bool state)
         {
-            playerHealthSO.UpgradeMaxHealth();
-            upgradePanel.SetActive(false);
-            ToggleGamePauseState(false);
-        }
-
-        private void UpgradeWeaponDamage()
-        {
-            projectileStatsSO.IncreaseDamage();
-            upgradePanel.SetActive(false);
-            ToggleGamePauseState(false);
-        }
-
-        private void UpgradeWeaponFireRate()
-        {
-            weaponStatsSO.DecreaseFireRate();
-            upgradePanel.SetActive(false);
-            ToggleGamePauseState(false);
+            upgradePanel.SetActive(state);
         }
 
         private void ToggleGamePauseState(bool state)
