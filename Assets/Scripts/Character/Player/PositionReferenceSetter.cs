@@ -4,7 +4,7 @@ namespace VampireSurvivor
 {
     public class PositionReferenceSetter : MonoBehaviour
     {
-        [SerializeField] private SPositionReference positionReference;
+        [SerializeField] private PositionReferenceSO positionReference;
 
         private void Awake()
         {

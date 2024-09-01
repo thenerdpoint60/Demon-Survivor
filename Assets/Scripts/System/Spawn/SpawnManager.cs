@@ -18,7 +18,7 @@ namespace VampireSurvivor
 
         private void StartSpawning(int level)
         {
-            for (int i = 0, spawnDatasCount = spawnDatas.Count; i < spawnDatasCount; i++)
+            for (int i = 0, spawnDataListCount = spawnDatas.Count; i < spawnDataListCount; i++)
             {
                 SpawnDataSO spawnData = spawnDatas[i];
                 if (spawnData.MinimumLevel >= level)
@@ -28,7 +28,7 @@ namespace VampireSurvivor
 
         private void StopSpawning()
         {
-            for (int i = 0, spawnDatasCount = spawnDatas.Count; i < spawnDatasCount; i++)
+            for (int i = 0, spawnDataListCount = spawnDatas.Count; i < spawnDataListCount; i++)
             {
                 StopCoroutine(SpawnCoroutine(spawnDatas[i]));
             }
@@ -36,7 +36,7 @@ namespace VampireSurvivor
 
         private void UpgradeSpawnData()
         {
-            for (int i = 0, spawnDatasCount = spawnDatas.Count; i < spawnDatasCount; i++)
+            for (int i = 0, spawnDataListCount = spawnDatas.Count; i < spawnDataListCount; i++)
             {
                 spawnDatas[i].NextSpawnWave();
             }

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace VampireSurvivor
 {
     [CreateAssetMenu(fileName = "PositionReference", menuName = "ScriptableObjects/PositionReference", order = 1)]
-    public class SPositionReference : ScriptableObject
+    public class PositionReferenceSO : ScriptableObject
     {
         private IMovableState movableState;
 

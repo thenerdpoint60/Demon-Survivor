@@ -5,7 +5,7 @@ namespace VampireSurvivor
 {
     public class EnemyTargetAI : MonoBehaviour
     {
-        [SerializeField] private SPositionReference target;
+        [SerializeField] private PositionReferenceSO target;
         [SerializeField] private Transform enemyTransform;
 
         private IMovable enemyMovable;
