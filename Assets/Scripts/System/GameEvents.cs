@@ -9,6 +9,8 @@ namespace VampireSurvivor
         PlayerLevelUp,
         XPCollected,
         GamePause,
-        PlayerWon
+        PlayerWon,
+        QuitGame,
+        RestartGame,
     }
 }

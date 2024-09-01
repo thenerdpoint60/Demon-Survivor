@@ -18,12 +18,12 @@ namespace VampireSurvivor
 
         private void QuitGame()
         {
-            Debug.Log("Quit Game");
+            EventManager.TriggerEvent(GameEvents.QuitGame);
         }
 
         private void RestartGame()
         {
-            Debug.Log("Restart Game");
+            EventManager.TriggerEvent(GameEvents.RestartGame);
         }
 
         private void OnEnable()
