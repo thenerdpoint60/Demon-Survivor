@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c424b32700ab1484988c30c498838897, type: 3}
+  m_Script: {fileID: 11500000, guid: f210d051a2051ff419f5e67fd19f6b41, type: 3}
   m_Name: Player Position Reference
   m_EditorClassIdentifier: 
