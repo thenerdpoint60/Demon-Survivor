@@ -8,6 +8,8 @@ namespace VampireSurvivor
         Projectile,
         Enemy1,
         Enemy2,
-        XP
+        XP,
+        SmallHealth,
+        BigHealth,
     }
 }

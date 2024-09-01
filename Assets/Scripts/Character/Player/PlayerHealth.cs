@@ -12,7 +12,7 @@ namespace VampireSurvivor
 
         public override void Heal(int heal)
         {
-            base.Damage(heal);
+            base.Heal(heal);
             EventManager.TriggerEvent(GameEvents.PlayerHealth, (float)GetCurrentHealth);
         }
     }
