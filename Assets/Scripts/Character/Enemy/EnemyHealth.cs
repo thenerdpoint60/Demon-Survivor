@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -44,12 +45,18 @@ namespace VampireSurvivor
 
         private void HandleDeath()
         {
-            enemyAnimator.SetTrigger("Died");
+            enemyAnimator.SetTrigger("Dead");
+            float animationDuration = enemyAnimator.GetCurrentAnimatorStateInfo(0).length;
 
-            GameObject gameXP = PoolManager.Instance.GetFromPool(GamePoolType.XP);
-            gameXP.transform.position = parentTransform.transform.position;
+            DOVirtual.DelayedCall(animationDuration, () =>
+            {
+                Debug.Log("Death animation completed");
 
-            PoolManager.Instance.ReturnToPool(poolType, parentTransform);
+                GameObject gameXP = PoolManager.Instance.GetFromPool(GamePoolType.XP);
+                gameXP.transform.position = parentTransform.transform.position;
+
+                PoolManager.Instance.ReturnToPool(poolType, parentTransform);
+            });
         }
     }
 }
