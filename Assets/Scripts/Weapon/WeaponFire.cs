@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,10 @@ namespace VampireSurvivor
     public class WeaponFire : MonoBehaviour
     {
         [SerializeField] private Transform firePoint;
+        [SerializeField] private Transform weaponTransform;
         [SerializeField] private WeaponStatsSO weaponStats;
+        [SerializeField] private float recoilDistance = 0.1f;
+        [SerializeField] private float recoilDuration = 0.1f;
 
         private float nextFireTime = 0f;
         private List<Collider2D> targetColliders = new();
@@ -50,6 +54,16 @@ namespace VampireSurvivor
             GameObject projectile = PoolManager.Instance.GetFromPool(GamePoolType.Projectile);
             projectile.transform.position = firePoint.position;
             projectile.GetComponent<Projectile>().SetDirection(direction);
+            ApplyRecoil();
+        }
+
+        private void ApplyRecoil()
+        {
+            Vector3 originalPosition = weaponTransform.localPosition;
+            Vector3 recoilPosition = originalPosition - weaponTransform.right * recoilDistance;
+
+            weaponTransform.DOLocalMove(recoilPosition, recoilDuration)
+                .OnComplete(() => weaponTransform.DOLocalMove(originalPosition, recoilDuration));
         }
 
         public void AddTarget(Collider2D target)

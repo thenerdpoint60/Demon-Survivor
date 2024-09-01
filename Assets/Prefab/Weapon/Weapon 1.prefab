@@ -368,4 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4797003182513638898}
+  weaponTransform: {fileID: 5524355979477431522}
   weaponStats: {fileID: 11400000, guid: 208fdd17c7d89ae4f9b5d964148ab192, type: 2}
+  recoilDistance: 0.3
+  recoilDuration: 0.1
