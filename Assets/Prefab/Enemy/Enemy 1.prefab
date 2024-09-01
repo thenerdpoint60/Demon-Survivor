@@ -592,6 +592,8 @@ MonoBehaviour:
   poolType: 1
   parentTransform: {fileID: 6273424703327921253}
   enemyAnimator: {fileID: 8345632688730986832}
+  enemyDeathRewards: 3
+  deadPlayAnimationDelayInSec: 0.8
 --- !u!1 &3135004041012772594
 GameObject:
   m_ObjectHideFlags: 0
