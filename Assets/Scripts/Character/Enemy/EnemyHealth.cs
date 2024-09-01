@@ -53,7 +53,7 @@ namespace VampireSurvivor
             {
                 Debug.Log("Death animation completed");
 
-                GameObject gameXP = PoolManager.Instance.GetFromPool(GamePoolType.XP);
+                GameObject gameXP = PoolManager.Instance.GetFromPool(enemyDeathRewards);
                 gameXP.transform.position = parentTransform.transform.position;
 
                 PoolManager.Instance.ReturnToPool(poolType, parentTransform);
