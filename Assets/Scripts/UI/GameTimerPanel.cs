@@ -1,0 +1,56 @@
+using TMPro;
+using UnityEngine;
+
+namespace VampireSurvivor
+{
+    public class GameTimerPanel : MonoBehaviour
+    {
+        [SerializeField] private TMP_Text timerText;
+        [SerializeField] private int timerInSeconds = 300;
+
+        private float timeRemaining;
+        private bool timerRunning = false;
+
+        private void Start()
+        {
+            StartTimer(timerInSeconds);
+        }
+
+        private void Update()
+        {
+            if (timerRunning)
+            {
+                if (timeRemaining > 0)
+                {
+                    timeRemaining -= Time.deltaTime;
+                    timerText.text = FormatTime(timeRemaining);
+                }
+                else
+                {
+                    timeRemaining = 0;
+                    timerRunning = false;
+                    timerText.text = FormatTime(timeRemaining);
+                    TimerFinished();
+                }
+            }
+        }
+
+        public void StartTimer(int duration)
+        {
+            timeRemaining = duration;
+            timerRunning = true;
+        }
+
+        private string FormatTime(float time)
+        {
+            int minutes = Mathf.FloorToInt(time / 60);
+            int seconds = Mathf.FloorToInt(time % 60);
+            return string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+
+        private void TimerFinished()
+        {
+            EventManager.TriggerEvent(GameEvents.PlayerWon);
+        }
+    }
+}
