@@ -7,9 +7,12 @@ namespace VampireSurvivor
     public class EnemyHealth : CharacterHealth
     {
         [SerializeField] private UnityEvent<float> onHealthUpdated;
+        [SerializeField] private UnityEvent onEnemyDead;
         [SerializeField] private GamePoolType poolType;
         [SerializeField] private GameObject parentTransform;
         [SerializeField] private Animator enemyAnimator;
+        [SerializeField] private GamePoolType enemyDeathRewards = GamePoolType.XP;
+        [SerializeField] private float deadPlayAnimationDelayInSec = 1f;
 
         public override void Damage(int damage)
         {
@@ -42,10 +45,11 @@ namespace VampireSurvivor
 
         private void HandleDeath()
         {
+            onEnemyDead.Invoke();
             enemyAnimator.SetTrigger("Dead");
             float animationDuration = enemyAnimator.GetCurrentAnimatorStateInfo(0).length;
 
-            DOVirtual.DelayedCall(animationDuration, () =>
+            DOVirtual.DelayedCall(animationDuration + deadPlayAnimationDelayInSec, () =>
             {
                 Debug.Log("Death animation completed");
 
