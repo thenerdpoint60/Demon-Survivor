@@ -78,14 +78,15 @@ namespace VampireSurvivor
         private void Spawn(SpawnDataSO spawnData)
         {
             Transform spawnPosition = GetRandomSpawnPosition();
-            GameObject spawnPrefab = PoolManager.Instance.GetFromPool(spawnData.PoolKey);
+            GameObject spawnedGameObject = PoolManager.Instance.GetFromPool(spawnData.PoolKey, false);
 
-            if (spawnPrefab != null)
+            if (spawnedGameObject != null)
             {
                 Vector3 spawnPos = spawnPosition.position;
                 spawnPos.z = 0;
-                spawnPrefab.transform.position = spawnPos;
-                spawnPrefab.SetActive(true);
+                spawnedGameObject.transform.position = spawnPos;
+                spawnedGameObject.SetActive(true);
+                Debug.Log($"Spawned Object at {spawnedGameObject.transform.position}");
             }
             else
             {

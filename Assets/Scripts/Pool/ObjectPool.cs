@@ -23,7 +23,7 @@ namespace VampireSurvivor
             }
         }
 
-        public GameObject GetFromPool()
+        public GameObject GetFromPool(bool isSpawnState = true)
         {
             GameObject pooledObject;
 
@@ -36,7 +36,7 @@ namespace VampireSurvivor
                 pooledObject = Object.Instantiate(prefab, parentTransform);
             }
 
-            pooledObject.SetActive(true);
+            pooledObject.SetActive(isSpawnState);
 
             return pooledObject;
         }

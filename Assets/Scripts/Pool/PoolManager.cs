@@ -40,11 +40,11 @@ namespace VampireSurvivor
             pools[key] = pool;
         }
 
-        public GameObject GetFromPool(GamePoolType key)
+        public GameObject GetFromPool(GamePoolType key, bool isSpawnState = true)
         {
             if (pools.TryGetValue(key, out var pool))
             {
-                return pool.GetFromPool();
+                return pool.GetFromPool(isSpawnState);
             }
 
             Debug.LogError($"Pool with key {key} does not exist.");
