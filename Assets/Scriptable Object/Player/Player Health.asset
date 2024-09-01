@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Player Health
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
   upgradeMaxHealthBy: 20
