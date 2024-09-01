@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1423cf3a65f200541a670a085a1a7b14, type: 3}
   m_Name: Enemy 2 Health
   m_EditorClassIdentifier: 
-  maxHealth: 30
-  currentHealth: 0
+  maxHealth: 50
   upgradeMaxHealthBy: 0
