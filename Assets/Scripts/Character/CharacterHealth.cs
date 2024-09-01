@@ -7,6 +7,8 @@ namespace VampireSurvivor
     {
         [SerializeField] private CharacterHealthSO healthStats;
         [SerializeField] private int currentHealth;
+        [SerializeField] private UnityEvent<int> onCharacterDamage;
+        [SerializeField] private UnityEvent<int> onCharacterHeal;
 
         private void OnEnable()
         {
@@ -18,6 +20,7 @@ namespace VampireSurvivor
             currentHealth += health;
             if (currentHealth > healthStats.MaxHealth)
                 currentHealth = healthStats.MaxHealth;
+            onCharacterHeal.Invoke(health);
         }
 
         public virtual void Damage(int damage)
@@ -25,6 +28,7 @@ namespace VampireSurvivor
             currentHealth -= damage;
             if (currentHealth < 0)
                 currentHealth = 0;
+            onCharacterDamage.Invoke(damage);
         }
 
         public bool HasDied()
