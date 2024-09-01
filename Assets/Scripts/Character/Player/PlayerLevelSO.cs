@@ -10,19 +10,27 @@ namespace VampireSurvivor
         [SerializeField] private int xpForEachLevel = 100;
         [SerializeField] private int maxPlayerLevel = 10;
 
+        private int NextLevelXPNeeded => xpForEachLevel * currentPlayerLevel;
+
         public int CurrentXPCollected => currentXPCollected;
         public int CurrentPlayerLevel => currentPlayerLevel;
         public int XPForEachLevel => xpForEachLevel;
         public int MaxPlayerLevel => maxPlayerLevel;
 
-        public bool HasPlayerMaxedLevelUp()
+        private void OnEnable()
+        {
+            currentXPCollected = 0;
+            currentPlayerLevel = 1;
+        }
+
+        private bool HasPlayerMaxedLevelUp()
         {
             return currentPlayerLevel >= maxPlayerLevel;
         }
 
-        public bool HasPlayerLeveledUp()
+        private bool HasPlayerLeveledUp()
         {
-            return currentXPCollected >= xpForEachLevel * currentPlayerLevel;
+            return currentXPCollected >= NextLevelXPNeeded;
         }
 
         public void RewardXP(int amount)
@@ -31,12 +39,11 @@ namespace VampireSurvivor
                 return;
 
             currentXPCollected += amount;
-            float currentLevelXP = (float)currentXPCollected / (xpForEachLevel * currentPlayerLevel);
-            EventManager.TriggerEvent(GameEvents.XPCollected, currentLevelXP);
             Debug.Log("XP Rewarded To Player");
             if (HasPlayerLeveledUp())
             {
                 currentPlayerLevel++;
+                currentXPCollected = 0;
                 EventManager.TriggerEvent(GameEvents.PlayerLevelUp, currentPlayerLevel);
                 Debug.Log("PlayerLeveled Up");
                 if (HasPlayerMaxedLevelUp())
@@ -44,6 +51,9 @@ namespace VampireSurvivor
                     Debug.Log("PlayerLeveled Maxed");
                 }
             }
+
+            float currentLevelXP = (float)currentXPCollected / (xpForEachLevel * currentPlayerLevel);
+            EventManager.TriggerEvent(GameEvents.XPCollected, currentLevelXP);
         }
     }
 }

@@ -5,6 +5,7 @@ namespace VampireSurvivor
 {
     public class GameXP : MonoBehaviour
     {
+        [SerializeField] private int rewardValue = 10;
         [SerializeField] private float moveDuration = 0.6f;
         [SerializeField] private AudioClip rewardClip;
 
@@ -44,7 +45,7 @@ namespace VampireSurvivor
                {
                    if (rewardClip != null)
                        audioSource.PlayOneShot(rewardClip);
-                   collider2D.GetComponent<ICollectable>().Collect();
+                   collider2D.GetComponent<ICollectable>().Collect(rewardValue);
                    PoolManager.Instance.ReturnToPool(GamePoolType.XP, gameObject);
                });
         }

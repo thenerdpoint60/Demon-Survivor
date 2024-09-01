@@ -7,9 +7,9 @@ namespace VampireSurvivor
     {
         [SerializeField] private PlayerLevelSO playerLevelSO;
 
-        public void Collect()
+        public void Collect(int value)
         {
-            playerLevelSO.RewardXP(1);
+            playerLevelSO.RewardXP(value);
         }
     }
 }
