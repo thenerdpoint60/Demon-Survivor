@@ -10,10 +10,9 @@ namespace VampireSurvivor
     public class GameUpgradePanel : MonoBehaviour
     {
         [SerializeField] private GameObject upgradePanel;
-
         [SerializeField] private List<OptionUI> optionUIList;
-
         [SerializeField] private List<UpgradeOption> upgradeOptions;
+        [SerializeField] private AudioClip playerLevelUp;
 
         private List<UpgradeOption> currentUpgradeOptions = new();
 
@@ -71,6 +70,7 @@ namespace VampireSurvivor
             SetUpUpgradePanel();
             ToggleUpgradePanel(true);
             ToggleGamePauseState(true);
+            GetComponent<AudioSource>().PlayOneShot(playerLevelUp);
         }
 
         private void ToggleUpgradePanel(bool state)
