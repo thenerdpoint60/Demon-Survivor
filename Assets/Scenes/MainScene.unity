@@ -6021,6 +6021,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9076842040963744192, guid: fc43c4dd78b771f46a036df749855818, type: 3}
+      propertyPath: ease
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076842040963744192, guid: fc43c4dd78b771f46a036df749855818, type: 3}
+      propertyPath: scaleUpFactor
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076842040963744192, guid: fc43c4dd78b771f46a036df749855818, type: 3}
+      propertyPath: animationDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

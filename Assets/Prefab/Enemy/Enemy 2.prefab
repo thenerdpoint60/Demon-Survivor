@@ -51,6 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthUpdateText: {fileID: 3395899192826478405}
   textDisplayDuration: 2
+  scaleUpFactor: 1.7
+  animationDuration: 0.35
+  ease: 7
 --- !u!1 &597319171277671268
 GameObject:
   m_ObjectHideFlags: 0
