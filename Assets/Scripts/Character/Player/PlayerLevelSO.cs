@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace VampireSurvivor
@@ -5,8 +6,8 @@ namespace VampireSurvivor
     [CreateAssetMenu(fileName = "PlayerLevel", menuName = "ScriptableObjects/PlayerLevel", order = 1)]
     public class PlayerLevelSO : ScriptableObject
     {
-        [SerializeField] private int currentXPCollected = 0;
-        [SerializeField] private int currentPlayerLevel = 1;
+        [NonSerialized] private int currentXPCollected = 0;
+        [NonSerialized] private int currentPlayerLevel = 1;
         [SerializeField] private int xpForEachLevel = 100;
         [SerializeField] private int maxPlayerLevel = 10;
 

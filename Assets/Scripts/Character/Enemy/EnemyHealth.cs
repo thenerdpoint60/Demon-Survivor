@@ -15,9 +15,10 @@ namespace VampireSurvivor
         [SerializeField] private GamePoolType enemyDeathRewards = GamePoolType.XP;
         [SerializeField] private float deadPlayAnimationDelayInSec = 1f;
 
-        private void Start()
+        private void OnEnable()
         {
             onEnemySpawn.Invoke();
+            ResetHealth();
         }
 
         public override void Damage(int damage)

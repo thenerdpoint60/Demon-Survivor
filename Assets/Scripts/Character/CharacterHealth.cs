@@ -12,7 +12,7 @@ namespace VampireSurvivor
 
         private void OnEnable()
         {
-            currentHealth = healthStats.MaxHealth;
+            ResetHealth();
         }
 
         public virtual void Heal(int health)
@@ -38,5 +38,10 @@ namespace VampireSurvivor
 
         public int GetCurrentHealth => currentHealth;
         public int GetMaxHealth => healthStats.MaxHealth;
+
+        protected void ResetHealth()
+        {
+            currentHealth = healthStats.MaxHealth;
+        }
     }
 }

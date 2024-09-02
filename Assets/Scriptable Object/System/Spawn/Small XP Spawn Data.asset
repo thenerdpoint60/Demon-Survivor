@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0180c96006a37164b801592280430b4f, type: 3}
-  m_Name: Enemy 1 Spawn Data
+  m_Name: Small XP Spawn Data
   m_EditorClassIdentifier: 
-  poolKey: 1
+  poolKey: 3
   spawnWavesTime:
-  - 2
-  - 1.5
-  - 1
-  spawnTime: 2
+  - 20
+  spawnTime: 20
   minimumLevel: 1

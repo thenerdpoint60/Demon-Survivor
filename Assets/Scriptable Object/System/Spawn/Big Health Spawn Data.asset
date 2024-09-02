@@ -16,4 +16,4 @@ MonoBehaviour:
   spawnWavesTime:
   - 20
   spawnTime: 20
-  minimumLevel: 3
+  minimumLevel: 5

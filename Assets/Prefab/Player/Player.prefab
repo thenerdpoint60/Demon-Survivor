@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterRigidBody: {fileID: 6712586705731026253}
-  moveSpeed: 10
+  moveSpeed: 11
   ease: 1
   animator: {fileID: 2296569154791352428}
   characterBody: {fileID: 5558584805038996317}
@@ -835,7 +835,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -4}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 12.5
 --- !u!114 &603225612739897107
 MonoBehaviour:
   m_ObjectHideFlags: 0

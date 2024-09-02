@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterRigidBody: {fileID: 4360369824051535169}
-  moveSpeed: 7
+  moveSpeed: 8
   ease: 1
   animator: {fileID: 6341580230819724585}
   characterBody: {fileID: 7023082170699032180}

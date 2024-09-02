@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace VampireSurvivor
@@ -10,6 +11,13 @@ namespace VampireSurvivor
         [SerializeField] private int increaseDamageBy = 5;
         [SerializeField] private float projectileDuration = 5f;
 
+        private int initialDamage;
+
+        private void OnEnable()
+        {
+            initialDamage = damage;
+        }
+
         public int Speed => speed;
 
         public int Damage => damage;
@@ -19,6 +27,11 @@ namespace VampireSurvivor
         public void IncreaseDamage()
         {
             damage += increaseDamageBy;
+        }
+
+        private void OnDisable()
+        {
+            damage = initialDamage;
         }
     }
 }
