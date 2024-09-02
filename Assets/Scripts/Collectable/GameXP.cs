@@ -12,6 +12,7 @@ namespace VampireSurvivor
         [SerializeField] private float scaleUpFactor = 0.9f;
         [SerializeField] private float animationDuration = 0.7f;
         [SerializeField] private Ease ease = Ease.Linear;
+        [SerializeField] private GamePoolType rewardType = GamePoolType.XP;
 
         private AudioSource audioSource;
         private Tweener moveTween;
@@ -40,21 +41,28 @@ namespace VampireSurvivor
             scaleTween.Kill();
             Vector3 targetPosition = collider2D.transform.position;
             ICollectable collectable = collider2D.GetComponent<ICollectable>();
+
+            if (collectable == null)
+                return;
+
             moveTween = transform.DOMove(targetPosition, moveDuration)
                .SetEase(Ease.Linear)
-               .OnComplete(() =>
-               {
-                   if (rewardClip != null)
-                       audioSource.PlayOneShot(rewardClip);
-                   if (collectable != null)
-                       collectable.Collect(rewardValue);
-                   PoolManager.Instance.ReturnToPool(GamePoolType.XP, gameObject);
-               });
+               .OnComplete(() => OnMoveComplete(collectable));
+        }
+
+        private void OnMoveComplete(ICollectable collectable)
+        {
+            if (rewardClip != null)
+                audioSource.PlayOneShot(rewardClip);
+            if (collectable != null)
+                collectable.Collect(rewardValue);
+            PoolManager.Instance.ReturnToPool(rewardType, gameObject);
         }
 
         private void OnDisable()
         {
             scaleTween.Kill();
+            moveTween.Kill();
         }
     }
 }
