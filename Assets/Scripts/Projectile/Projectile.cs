@@ -41,9 +41,9 @@ namespace VampireSurvivor
             transform.Translate(direction * stats.Speed * Time.deltaTime);
         }
 
-        public void DamageEnemy(Collider2D collision)
+        public void DamageEnemy(Collider2D Collider2D)
         {
-            IHealth damageable = collision.gameObject.GetComponent<IHealth>();
+            IHealth damageable = Collider2D.gameObject.GetComponent<IHealth>();
             if (damageable != null)
             {
                 damageable.Damage(stats.Damage);

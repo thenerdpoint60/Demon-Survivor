@@ -2530,6 +2530,9 @@ MonoBehaviour:
   - poolKey: 5
     prefab: {fileID: 4979975340904880043, guid: 64d88f22f13dbe1498efe672adb46cb0, type: 3}
     initialSize: 10
+  - poolKey: 2
+    prefab: {fileID: 6154900845547630542, guid: 2876b5dc3a109044f9dd1940c040d124, type: 3}
+    initialSize: 10
 --- !u!1 &805605854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4628,6 +4631,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a880755274cc72f4d80921753bf45f6a, type: 2}
   - {fileID: 11400000, guid: 6275396159b539c46864c4e6bc4a084a, type: 2}
   - {fileID: 11400000, guid: 1145a822298f9254188c16675eab852e, type: 2}
+  - {fileID: 11400000, guid: c4a47c15ed8f7684a86bdd4c496d3a84, type: 2}
   spawnPositions:
   - {fileID: 1172268787}
   - {fileID: 1756288651}

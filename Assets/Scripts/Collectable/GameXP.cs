@@ -37,6 +37,7 @@ namespace VampireSurvivor
 
         public void RewardsGameXP(Collider2D collider2D)
         {
+            scaleTween.Kill();
             Vector3 targetPosition = collider2D.transform.position;
             ICollectable collectable = collider2D.GetComponent<ICollectable>();
             moveTween = transform.DOMove(targetPosition, moveDuration)
