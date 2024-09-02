@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,14 +11,40 @@ namespace VampireSurvivor
 
         private float timeRemaining;
         private bool timerRunning = false;
+        private bool isGamePaused = false;
 
         private void Start()
         {
             StartTimer(timerInSeconds);
         }
 
+        private void OnEnable()
+        {
+            EventManager.StartListening(GameEvents.PlayerDie, OnPlayerDie);
+            EventManager.StartListening(GameEvents.GamePause, OnGamePause);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StartListening(GameEvents.PlayerDie, OnPlayerDie);
+            EventManager.StartListening(GameEvents.GamePause, OnGamePause);
+        }
+
+        private void OnGamePause(object state)
+        {
+            isGamePaused = (bool)state;
+        }
+
+        private void OnPlayerDie(object state)
+        {
+            timerRunning = false;
+        }
+
         private void Update()
         {
+            if (isGamePaused)
+                return;
+
             if (timerRunning)
             {
                 if (timeRemaining > 0)
