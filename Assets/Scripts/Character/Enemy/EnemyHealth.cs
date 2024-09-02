@@ -8,11 +8,17 @@ namespace VampireSurvivor
     {
         [SerializeField] private UnityEvent<float> onHealthUpdated;
         [SerializeField] private UnityEvent onEnemyDead;
+        [SerializeField] private UnityEvent onEnemySpawn;
         [SerializeField] private GamePoolType poolType;
         [SerializeField] private GameObject parentTransform;
         [SerializeField] private Animator enemyAnimator;
         [SerializeField] private GamePoolType enemyDeathRewards = GamePoolType.XP;
         [SerializeField] private float deadPlayAnimationDelayInSec = 1f;
+
+        private void Start()
+        {
+            onEnemySpawn.Invoke();
+        }
 
         public override void Damage(int damage)
         {
