@@ -390,6 +390,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageBloodParticle: {fileID: 3815517672655592376}
 --- !u!1 &3074073589597858559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1008,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e02bc9de630a4ef4daf20089f36b3e38, type: 3}
+--- !u!198 &3815517672655592376 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9205415860806615323, guid: e02bc9de630a4ef4daf20089f36b3e38, type: 3}
+  m_PrefabInstance: {fileID: 5418751641035512483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6105115837549039185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2272909794442761458, guid: e02bc9de630a4ef4daf20089f36b3e38, type: 3}
