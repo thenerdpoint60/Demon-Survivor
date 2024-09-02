@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace VampireSurvivor
@@ -10,10 +11,23 @@ namespace VampireSurvivor
         [SerializeField] private List<Transform> spawnPositions;
 
         private bool isSpawning = true;
+        private bool isGamePause = false;
 
         private void Start()
         {
             StartSpawning(1);
+        }
+
+        private void OnEnable()
+        {
+            EventManager.StartListening(GameEvents.PlayerLevelUp, OnPlayerLevelUp);
+            EventManager.StartListening(GameEvents.GamePause, OnGamePause);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening(GameEvents.PlayerLevelUp, OnPlayerLevelUp);
+            EventManager.StopListening(GameEvents.GamePause, OnGamePause);
         }
 
         private void StartSpawning(int level)
@@ -21,7 +35,7 @@ namespace VampireSurvivor
             for (int i = 0, spawnDataListCount = spawnDatas.Count; i < spawnDataListCount; i++)
             {
                 SpawnDataSO spawnData = spawnDatas[i];
-                if (spawnData.MinimumLevel >= level)
+                if (spawnData.MinimumLevel <= level)
                     StartCoroutine(SpawnCoroutine(spawnData));
             }
         }
@@ -42,14 +56,9 @@ namespace VampireSurvivor
             }
         }
 
-        private void OnEnable()
+        private void OnGamePause(object obj)
         {
-            EventManager.StartListening(GameEvents.PlayerLevelUp, OnPlayerLevelUp);
-        }
-
-        private void OnDisable()
-        {
-            EventManager.StartListening(GameEvents.PlayerLevelUp, OnPlayerLevelUp);
+            isGamePause = (bool)obj;
         }
 
         private void OnPlayerLevelUp(object playerLevel)
@@ -71,7 +80,8 @@ namespace VampireSurvivor
             while (isSpawning)
             {
                 yield return waitForSecondsRealtime;
-                Spawn(spawnData);
+                if (!isGamePause)
+                    Spawn(spawnData);
             }
         }
 
@@ -86,7 +96,6 @@ namespace VampireSurvivor
                 spawnPos.z = 0;
                 spawnedGameObject.transform.position = spawnPos;
                 spawnedGameObject.SetActive(true);
-                Debug.Log($"Spawned Object at {spawnedGameObject.transform.position}");
             }
             else
             {
