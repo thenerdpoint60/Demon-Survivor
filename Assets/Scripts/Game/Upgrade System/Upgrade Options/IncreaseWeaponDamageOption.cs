@@ -15,8 +15,8 @@ namespace VampireSurvivor
         {
             int currentDamage = projectileStatsSO.Damage;
             int newDamage = currentDamage + projectileStatsSO.IncreaseDamageBy;
-            string upgradeText = $"INCREASE WEAPON DAMAGE FROM {currentDamage} " +
-                $"<color=#00FF00><b> TO " +
+            string upgradeText = $"INCREASE WEAPON DAMAGE FROM <color=red>{currentDamage} </color>" +
+                $"<color=green><b> TO " +
                 $"{newDamage}" +
                 $"</b></color>";
             return upgradeText;

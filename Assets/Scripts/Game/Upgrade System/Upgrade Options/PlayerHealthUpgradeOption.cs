@@ -10,8 +10,8 @@ namespace VampireSurvivor
         {
             int maxHealth = playerHealthSO.MaxHealth;
             int nextMaxHealth = (int)(maxHealth + playerHealthSO.UpgradeMaxHealthByValue);
-            string upgradeText = $"INCREASE MAX HEALTH FROM {maxHealth} " +
-                $"<color=#00FF00><b> TO " +
+            string upgradeText = $"INCREASE MAX HEALTH FROM <color=red>{maxHealth} </color>" +
+                $"<color=green><b> TO " +
                 $"{nextMaxHealth}" +
                 $"</b></color>";
             return upgradeText;
