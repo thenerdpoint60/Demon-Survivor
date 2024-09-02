@@ -18,7 +18,6 @@ namespace VampireSurvivor
         {
             base.Damage(damage);
 
-            //PlayHitAnimation();
             if (HasDied())
             {
                 HandleDeath();
@@ -33,11 +32,6 @@ namespace VampireSurvivor
             onHealthUpdated?.Invoke(currentHealthPercentage);
         }
 
-        private void PlayHitAnimation()
-        {
-            enemyAnimator.SetTrigger("Hit");
-        }
-
         private void StartMovingAnimation()
         {
             enemyAnimator.SetBool("Moving", true);
@@ -48,16 +42,17 @@ namespace VampireSurvivor
             onEnemyDead.Invoke();
             enemyAnimator.SetTrigger("Dead");
             float animationDuration = enemyAnimator.GetCurrentAnimatorStateInfo(0).length;
+            float disappearDelayInSec = animationDuration + deadPlayAnimationDelayInSec;
 
-            DOVirtual.DelayedCall(animationDuration + deadPlayAnimationDelayInSec, () =>
-            {
-                Debug.Log("Death animation completed");
+            DOVirtual.DelayedCall(disappearDelayInSec, OnDeathFinished);
+        }
 
-                GameObject gameXP = PoolManager.Instance.GetFromPool(enemyDeathRewards);
-                gameXP.transform.position = parentTransform.transform.position;
+        private void OnDeathFinished()
+        {
+            GameObject gameXP = PoolManager.Instance.GetFromPool(enemyDeathRewards);
+            gameXP.transform.position = parentTransform.transform.position;
 
-                PoolManager.Instance.ReturnToPool(poolType, parentTransform);
-            });
+            PoolManager.Instance.ReturnToPool(poolType, parentTransform);
         }
     }
 }

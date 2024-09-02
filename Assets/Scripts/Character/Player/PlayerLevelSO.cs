@@ -39,21 +39,20 @@ namespace VampireSurvivor
                 return;
 
             currentXPCollected += amount;
-            Debug.Log("XP Rewarded To Player");
             if (HasPlayerLeveledUp())
             {
                 currentPlayerLevel++;
                 currentXPCollected = 0;
                 EventManager.TriggerEvent(GameEvents.PlayerLevelUp, currentPlayerLevel);
-                Debug.Log("PlayerLeveled Up");
-                if (HasPlayerMaxedLevelUp())
-                {
-                    Debug.Log("PlayerLeveled Maxed");
-                }
             }
 
-            float currentLevelXP = (float)currentXPCollected / (xpForEachLevel * currentPlayerLevel);
-            EventManager.TriggerEvent(GameEvents.XPCollected, currentLevelXP);
+            UpdateCurrentXPPercentage();
+        }
+
+        private void UpdateCurrentXPPercentage()
+        {
+            float currentCollectedXpPercentage = (float)currentXPCollected / NextLevelXPNeeded;
+            EventManager.TriggerEvent(GameEvents.XPCollected, currentCollectedXpPercentage);
         }
     }
 }

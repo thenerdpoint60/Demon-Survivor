@@ -14,7 +14,7 @@ namespace VampireSurvivor
 
         [SerializeField] private float scaleUpFactor = 0.9f;
         [SerializeField] private float animationDuration = 0.7f;
-        [SerializeField] private Ease ease = Ease.Linear;
+        [SerializeField] private Ease animationEase = Ease.Linear;
 
         private AudioSource audioSource;
         private Tweener moveTween;
@@ -29,11 +29,19 @@ namespace VampireSurvivor
 
         private void OnEnable()
         {
+            if (moveTween != null)
+                moveTween.Kill();
+
+            StartScaleAnimation();
+        }
+
+        private void StartScaleAnimation()
+        {
             scaleTween = transform.DOScale(scaleUpFactor, animationDuration / 2)
-                        .SetEase(ease)
+                        .SetEase(animationEase)
                         .OnComplete(() =>
                         {
-                            transform.DOScale(currentScale, animationDuration / 2).SetEase(ease);
+                            transform.DOScale(currentScale, animationDuration / 2).SetEase(animationEase);
                         })
                         .SetLoops(-1, LoopType.Yoyo);
         }
@@ -43,20 +51,24 @@ namespace VampireSurvivor
             Vector3 targetPosition = Collider2D.transform.position;
 
             IHealth healAble = Collider2D.gameObject.GetComponent<IHealth>();
-            if (healAble != null)
-            {
-                moveTween = transform.DOMove(targetPosition, moveDuration)
-                   .SetEase(Ease.Linear)
-                   .OnComplete(() =>
-                   {
-                       if (rewardClip != null)
-                           audioSource.PlayOneShot(rewardClip);
+            if (healAble == null)
+                return;
 
-                       healAble.Heal(healthHeal);
-                       ReturnToPool();
-                   });
-            }
+            if (scaleTween != null)
+                scaleTween.Kill();
 
+            moveTween = transform.DOMove(targetPosition, moveDuration)
+               .SetEase(animationEase)
+               .OnComplete(() => OnMoveComplete(healAble));
+        }
+
+        private void OnMoveComplete(IHealth healAble)
+        {
+            if (rewardClip != null)
+                audioSource.PlayOneShot(rewardClip);
+
+            healAble.Heal(healthHeal);
+            ReturnToPool();
         }
 
         private void ReturnToPool()

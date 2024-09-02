@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace VampireSurvivor
 {
+    [RequireComponent(typeof(Image))]
     public class HealthBar : MonoBehaviour
     {
         private Image healthFillImage;
