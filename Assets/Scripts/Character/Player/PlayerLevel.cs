@@ -7,6 +7,11 @@ namespace VampireSurvivor
     {
         [SerializeField] private PlayerLevelSO playerLevelSO;
 
+        private void OnEnable()
+        {
+            playerLevelSO.ResetPlayer();
+        }
+
         public void Collect(int value)
         {
             playerLevelSO.RewardXP(value);

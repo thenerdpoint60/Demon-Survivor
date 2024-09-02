@@ -19,6 +19,11 @@ namespace VampireSurvivor
 
         private void OnEnable()
         {
+            ResetPlayer();
+        }
+
+        public void ResetPlayer()
+        {
             currentXPCollected = 0;
             currentPlayerLevel = 1;
         }
