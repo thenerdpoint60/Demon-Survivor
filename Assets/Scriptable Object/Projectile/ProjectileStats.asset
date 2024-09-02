@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602baa7880341ab488858ad2ce020ff9, type: 3}
   m_Name: ProjectileStats
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 20
   damage: 10
   increaseDamageBy: 5
-  projectileDuration: 3
+  projectileDuration: 2
