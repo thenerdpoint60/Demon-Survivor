@@ -24,7 +24,7 @@ namespace VampireSurvivor
 
         private void OnPlayerLevelUp(object currentLevel)
         {
-            currentPlayerLevelText.text = currentLevel.ToString();
+            currentPlayerLevelText.text = $"LEVEL {currentLevel}";
         }
 
         private void OnPlayerReceivedXP(object currentXP)
