@@ -11,5 +11,8 @@ namespace VampireSurvivor
         XP,
         SmallHealth,
         BigHealth,
+        Enemy3,
+        MediumXP,
+        LargeXP
     }
 }
