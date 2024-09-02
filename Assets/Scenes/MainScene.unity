@@ -455,7 +455,9 @@ GameObject:
   m_Component:
   - component: {fileID: 115752655}
   - component: {fileID: 115752656}
-  m_Layer: 0
+  - component: {fileID: 115752658}
+  - component: {fileID: 115752657}
+  m_Layer: 6
   m_Name: Collider 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +473,7 @@ Transform:
   m_GameObject: {fileID: 115752654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 0}
+  m_LocalPosition: {x: 130, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -522,6 +524,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 110}
   m_EdgeRadius: 0
+--- !u!114 &115752657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115752654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80968e8c7b44f13459481999298094a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &115752658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115752654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21bc62ca36ff0642a22f7a165b5e3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  onTriggerEnter2DEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115752657}
+        m_TargetAssemblyTypeName: VampireSurvivor.OutsideTheGameArea, Assembly-CSharp
+        m_MethodName: EnemyOutsideArea
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit2DEvents:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &130828697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2551,7 +2598,7 @@ MonoBehaviour:
     initialSize: 15
   - poolKey: 0
     prefab: {fileID: 5884379328155846235, guid: b8ed47bf4bcac5a4b9513c69f0127ae8, type: 3}
-    initialSize: 10
+    initialSize: 20
   - poolKey: 3
     prefab: {fileID: 863020067778182794, guid: bb050ba08312a3e4381e7e072ad57d0a, type: 3}
     initialSize: 15
@@ -2577,7 +2624,9 @@ GameObject:
   m_Component:
   - component: {fileID: 805605855}
   - component: {fileID: 805605856}
-  m_Layer: 0
+  - component: {fileID: 805605858}
+  - component: {fileID: 805605857}
+  m_Layer: 6
   m_Name: Collider 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2593,7 +2642,7 @@ Transform:
   m_GameObject: {fileID: 805605854}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -100, y: 0, z: 0}
+  m_LocalPosition: {x: -130, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2644,6 +2693,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 110}
   m_EdgeRadius: 0
+--- !u!114 &805605857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805605854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80968e8c7b44f13459481999298094a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &805605858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805605854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21bc62ca36ff0642a22f7a165b5e3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  onTriggerEnter2DEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115752657}
+        m_TargetAssemblyTypeName: VampireSurvivor.OutsideTheGameArea, Assembly-CSharp
+        m_MethodName: EnemyOutsideArea
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit2DEvents:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &822835454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,7 +5255,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1970480479}
   - component: {fileID: 1970480480}
-  m_Layer: 0
+  - component: {fileID: 1970480482}
+  - component: {fileID: 1970480481}
+  m_Layer: 6
   m_Name: Collider 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5177,7 +5273,7 @@ Transform:
   m_GameObject: {fileID: 1970480478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 60, z: 0}
+  m_LocalPosition: {x: 0, y: 70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5228,6 +5324,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1970480481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970480478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80968e8c7b44f13459481999298094a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1970480482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970480478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21bc62ca36ff0642a22f7a165b5e3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  onTriggerEnter2DEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115752657}
+        m_TargetAssemblyTypeName: VampireSurvivor.OutsideTheGameArea, Assembly-CSharp
+        m_MethodName: EnemyOutsideArea
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit2DEvents:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2036606189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3062968974708724278, guid: caaa161a67bbe0946a88f0823ea53e1e, type: 3}
@@ -5364,7 +5505,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2090208727}
   - component: {fileID: 2090208728}
-  m_Layer: 0
+  - component: {fileID: 2090208730}
+  - component: {fileID: 2090208729}
+  m_Layer: 6
   m_Name: Collider 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5380,7 +5523,7 @@ Transform:
   m_GameObject: {fileID: 2090208726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -60, z: 0}
+  m_LocalPosition: {x: 0, y: -70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5431,6 +5574,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &2090208729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090208726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80968e8c7b44f13459481999298094a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2090208730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090208726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21bc62ca36ff0642a22f7a165b5e3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  onTriggerEnter2DEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115752657}
+        m_TargetAssemblyTypeName: VampireSurvivor.OutsideTheGameArea, Assembly-CSharp
+        m_MethodName: EnemyOutsideArea
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit2DEvents:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2102778396
 GameObject:
   m_ObjectHideFlags: 0

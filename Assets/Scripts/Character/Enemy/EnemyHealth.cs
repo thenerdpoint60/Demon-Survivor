@@ -60,5 +60,11 @@ namespace VampireSurvivor
 
             PoolManager.Instance.ReturnToPool(poolType, parentTransform);
         }
+
+        public void ReturnToPool()
+        {
+            onEnemyDead.Invoke();
+            PoolManager.Instance.ReturnToPool(poolType, parentTransform);
+        }
     }
 }
