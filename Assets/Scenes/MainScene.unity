@@ -2614,6 +2614,12 @@ MonoBehaviour:
   - poolKey: 6
     prefab: {fileID: 6276449041300208290, guid: d59a45d7f00977645a13e4537b04888e, type: 3}
     initialSize: 5
+  - poolKey: 7
+    prefab: {fileID: 588773609069831427, guid: dcc77b9d4a258ed4abab67bf397cbb98, type: 3}
+    initialSize: 5
+  - poolKey: 8
+    prefab: {fileID: 6308695451920372310, guid: d15aaca2681fbcc4b87f104f46c43df0, type: 3}
+    initialSize: 5
 --- !u!1 &805605854
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,17 +5721,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1181974105241904382, guid: fc43c4dd78b771f46a036df749855818, type: 3}
-      propertyPath: damageBloodParticle
-      value: 
-      objectReference: {fileID: 2931836289381327134}
     - target: {fileID: 3013010289773774532, guid: fc43c4dd78b771f46a036df749855818, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3815517672655592376, guid: fc43c4dd78b771f46a036df749855818, type: 3}
-      propertyPath: playOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5558584805038996317, guid: fc43c4dd78b771f46a036df749855818, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5767,18 +5765,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5659374999898584740, guid: fc43c4dd78b771f46a036df749855818, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8692557517966435141, guid: fc43c4dd78b771f46a036df749855818, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8836229563076925885, guid: fc43c4dd78b771f46a036df749855818, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5787,11 +5773,6 @@ PrefabInstance:
       addedObject: {fileID: 1471950586}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc43c4dd78b771f46a036df749855818, type: 3}
---- !u!198 &2931836289381327134 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3815517672655592376, guid: fc43c4dd78b771f46a036df749855818, type: 3}
-  m_PrefabInstance: {fileID: 2931836289381327133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3244871962002848066
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,5 +15,5 @@ MonoBehaviour:
   poolKey: 6
   spawnWavesTime:
   - 20
-  spawnTime: 20
-  minimumLevel: 6
+  spawnTime: 15
+  minimumLevel: 5
