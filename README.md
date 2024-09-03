@@ -47,7 +47,7 @@ Welcome to **Demon Survivor**, a thrilling top-down action game where you battle
 - **Description**: Unlocks a second weapon which provides you a better fighting chance.
 - **Effect**: Gives you a clone of your current weapon stats into a new weapon.
 
-### 4. Increase Bullet Speed
+### 5. Increase Bullet Speed
 - **Description**: Bullets speed can help you attack far away enemy.
 - **Effect**: Increasing the speed will make the bullet travel longer distance.
 
