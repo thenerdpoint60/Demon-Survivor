@@ -12,6 +12,8 @@ namespace VampireSurvivor
         [SerializeField] private WeaponStatsSO weaponStats;
         [SerializeField] private float recoilDistance = 0.1f;
         [SerializeField] private float recoilDuration = 0.1f;
+        [SerializeField] private AudioSource weaponSource;
+        [SerializeField] private AudioClip weaponFireSfx;
 
         private float nextFireTime = 0f;
         private List<Collider2D> targetColliders = new();
@@ -52,6 +54,7 @@ namespace VampireSurvivor
         {
             Vector2 direction = (targetPosition - (Vector2)firePoint.position).normalized;
             GameObject projectile = PoolManager.Instance.GetFromPool(GamePoolType.Projectile);
+            weaponSource.PlayOneShot(weaponFireSfx);
             projectile.transform.position = firePoint.position;
             projectile.GetComponent<Projectile>().SetDirection(direction);
             ApplyRecoil();
