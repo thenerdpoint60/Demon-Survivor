@@ -20,5 +20,10 @@ namespace VampireSurvivor
             base.Heal(heal);
             EventManager.TriggerEvent(GameEvents.PlayerHealth, (float)GetCurrentHealth);
         }
+
+        public void SetHealth(int health)
+        {
+            Heal(health);
+        }
     }
 }
