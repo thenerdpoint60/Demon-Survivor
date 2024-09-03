@@ -6,8 +6,8 @@ namespace VampireSurvivor
     [CreateAssetMenu(fileName = "PlayerLevel", menuName = "ScriptableObjects/PlayerLevel", order = 1)]
     public class PlayerLevelSO : ScriptableObject
     {
-        [NonSerialized] private int currentXPCollected = 0;
-        [NonSerialized] private int currentPlayerLevel = 1;
+        [SerializeField] private int currentXPCollected = 0;
+        [SerializeField] private int currentPlayerLevel = 1;
         [SerializeField] private int xpForEachLevel = 100;
         [SerializeField] private int maxPlayerLevel = 10;
 
@@ -27,6 +27,7 @@ namespace VampireSurvivor
         {
             currentXPCollected = 0;
             currentPlayerLevel = 1;
+            UpdateCurrentXPPercentage();
         }
 
         private bool HasPlayerMaxedLevelUp()
@@ -47,8 +48,8 @@ namespace VampireSurvivor
             currentXPCollected += amount;
             if (HasPlayerLeveledUp())
             {
-                currentPlayerLevel++;
                 currentXPCollected = 0;
+                currentPlayerLevel++;
                 EventManager.TriggerEvent(GameEvents.PlayerLevelUp, currentPlayerLevel);
             }
 

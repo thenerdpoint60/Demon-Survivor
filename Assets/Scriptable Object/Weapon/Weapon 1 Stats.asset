@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Weapon 1 Stats
   m_EditorClassIdentifier: 
   fireRate: 1
-  decreaseFireRateBy: 0.1
+  decreaseFireRateBy: 0.2
