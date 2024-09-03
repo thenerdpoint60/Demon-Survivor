@@ -64,14 +64,13 @@ namespace VampireSurvivor
         private void OnPlayerLevelUp(object playerLevel)
         {
             int currentPlayerLevel = (int)playerLevel;
-            if (currentPlayerLevel % 3 == 0)
-            {
-                isSpawning = false;
-                StopSpawning();
+            Debug.Log($"Player Level {currentPlayerLevel}");
+            isSpawning = false;
+            StopSpawning();
+            if (currentPlayerLevel == 4 || currentPlayerLevel == 7)
                 UpgradeSpawnData();
-                StartSpawning(currentPlayerLevel);
-            }
             isSpawning = true;
+            StartSpawning(currentPlayerLevel);
         }
 
         private IEnumerator SpawnCoroutine(SpawnDataSO spawnData)
@@ -79,9 +78,9 @@ namespace VampireSurvivor
             WaitForSecondsRealtime waitForSecondsRealtime = new WaitForSecondsRealtime(spawnData.SpawnTime);
             while (isSpawning)
             {
-                yield return waitForSecondsRealtime;
                 if (!isGamePause)
                     Spawn(spawnData);
+                yield return waitForSecondsRealtime;
             }
         }
 
