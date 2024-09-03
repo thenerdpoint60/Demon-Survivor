@@ -11,7 +11,7 @@ namespace VampireSurvivor
             float currentFireRate = weaponStatsSO.FireRate;
             float nextFireRate = currentFireRate - weaponStatsSO.DecreaseFireRateBy;
             string upgradeText = $"DECREASE WEAPON FIRE RATE FROM <color=red>{currentFireRate} </color>" +
-                $"<color=green><b> TO " +
+                $"<color=green><b>TO " +
                 $"{nextFireRate}" +
                 $"</b></color>";
             return upgradeText;
