@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace VampireSurvivor
         [SerializeField] private int damage = 10;
         [SerializeField] private float attackCooldown = 1f;
         private Coroutine damageCoroutine;
+        private bool isGamePaused = false;
 
         public void StartDamaging(Collider2D collision)
         {
@@ -15,6 +17,21 @@ namespace VampireSurvivor
             {
                 damageCoroutine = StartCoroutine(DamagePlayerCoroutine(collision));
             }
+        }
+
+        private void OnEnable()
+        {
+            EventManager.StartListening(GameEvents.GamePause, OnGamePause);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening(GameEvents.GamePause, OnGamePause);
+        }
+
+        private void OnGamePause(object obj)
+        {
+            isGamePaused = (bool)obj;
         }
 
         public void StopDamaging(Collider2D collision)
@@ -28,7 +45,8 @@ namespace VampireSurvivor
             WaitForSecondsRealtime waitForSecondsRealtime = new WaitForSecondsRealtime(attackCooldown);
             while (damageable != null)
             {
-                damageable.Damage(damage);
+                if (!isGamePaused)
+                    damageable.Damage(damage);
                 yield return waitForSecondsRealtime;
             }
         }
