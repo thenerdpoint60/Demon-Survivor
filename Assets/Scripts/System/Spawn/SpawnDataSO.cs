@@ -11,7 +11,7 @@ namespace VampireSurvivor
         [SerializeField] private float spawnTime = 5f;
         [SerializeField] private int minimumLevel = 1;
 
-        private int currentSpawnWave = 1;
+        private int currentSpawnWave = 0;
         public GamePoolType PoolKey => poolKey;
         public float SpawnTime => spawnTime;
         public int MinimumLevel => minimumLevel;
@@ -23,11 +23,10 @@ namespace VampireSurvivor
 
         public void NextSpawnWave()
         {
-            spawnTime = spawnWavesTime[currentSpawnWave];
             currentSpawnWave++;
-
             if (currentSpawnWave >= spawnWavesTime.Count)
-                currentSpawnWave = spawnWavesTime.Count;
+                currentSpawnWave = spawnWavesTime.Count - 1;
+            spawnTime = spawnWavesTime[currentSpawnWave];
         }
     }
 }

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolKey: 7
   spawnWavesTime:
-  - 30
-  spawnTime: 30
-  minimumLevel: 1
+  - 25
+  spawnTime: 25
+  minimumLevel: 2
