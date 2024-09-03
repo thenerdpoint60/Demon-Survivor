@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 namespace VampireSurvivor
@@ -57,6 +56,9 @@ namespace VampireSurvivor
             if (scaleTween != null)
                 scaleTween.Kill();
 
+            audioSource.PlayOneShot(rewardClip);
+            healAble.Heal(healthHeal);
+
             moveTween = transform.DOMove(targetPosition, moveDuration)
                .SetEase(animationEase)
                .OnComplete(() => OnMoveComplete(healAble));
@@ -64,10 +66,6 @@ namespace VampireSurvivor
 
         private void OnMoveComplete(IHealth healAble)
         {
-            if (rewardClip != null)
-                audioSource.PlayOneShot(rewardClip);
-
-            healAble.Heal(healthHeal);
             ReturnToPool();
         }
 

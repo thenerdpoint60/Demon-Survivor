@@ -27,6 +27,9 @@ namespace VampireSurvivor
 
         private void Start()
         {
+            if (moveTween != null)
+                moveTween.Kill();
+
             scaleTween = transform.DOScale(scaleUpFactor, animationDuration / 2)
                         .SetEase(ease)
                         .OnComplete(() =>
@@ -38,12 +41,16 @@ namespace VampireSurvivor
 
         public void RewardsGameXP(Collider2D collider2D)
         {
-            scaleTween.Kill();
             Vector3 targetPosition = collider2D.transform.position;
             ICollectable collectable = collider2D.GetComponent<ICollectable>();
-
             if (collectable == null)
                 return;
+
+            if (scaleTween != null)
+                scaleTween.Kill();
+
+            audioSource.PlayOneShot(rewardClip);
+            collectable.Collect(rewardValue);
 
             moveTween = transform.DOMove(targetPosition, moveDuration)
                .SetEase(Ease.Linear)
@@ -52,10 +59,6 @@ namespace VampireSurvivor
 
         private void OnMoveComplete(ICollectable collectable)
         {
-            if (rewardClip != null)
-                audioSource.PlayOneShot(rewardClip);
-            if (collectable != null)
-                collectable.Collect(rewardValue);
             PoolManager.Instance.ReturnToPool(rewardType, gameObject);
         }
 

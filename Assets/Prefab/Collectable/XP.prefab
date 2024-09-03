@@ -195,8 +195,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -292,9 +292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a079badf2f012c044b3e9d5bfd2b5a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardValue: 15
+  rewardValue: 20
   moveDuration: 0.2
-  rewardClip: {fileID: 0}
+  rewardClip: {fileID: 8300000, guid: 85747db4af8e61b428efd58016a9eec4, type: 3}
   scaleUpFactor: 1.2
   animationDuration: 0.5
   ease: 1
