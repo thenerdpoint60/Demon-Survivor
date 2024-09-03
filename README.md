@@ -41,7 +41,22 @@ Welcome to **Demon Survivor**, a thrilling top-down action game where you battle
 
 ### 3. Health Regeneration
 - **Description**: Gradually regenerate health over time, helping you recover from damage during combat.
-- **Effect**: Increases your Max Health giving you a chance to collect more health.
+- **Effect**: Increases your Max Health giving you a chance to collect more health, also regains your lost health.
 
-## Known Bugs/Issues
+### 4. Second Weapon
+- **Description**: Unlocks a second weapon which provides you a better fighting chance.
+- **Effect**: Gives you a clone of your current weapon stats into a new weapon.
 
+### 4. Increase Bullet Speed
+- **Description**: Bullets speed can help you attack far away enemy.
+- **Effect**: Increasing the speed will make the bullet travel longer distance.
+
+## Download
+- [Windows]("https://thenerdpoint60.itch.io/demon-surviour")
+
+## Getting Started
+- Unity Version - 2022.3.39
+- Visual Studio 2022
+
+## Credits
+- [2D Character Art and Animation]("https://rgsdev.itch.io/free-cc0-modular-animated-vector-characters-2d")
