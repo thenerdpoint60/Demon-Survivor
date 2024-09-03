@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class PoolManager : MonoBehaviour
     {

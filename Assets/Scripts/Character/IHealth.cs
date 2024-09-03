@@ -1,4 +1,4 @@
-﻿namespace VampireSurvivor
+﻿namespace DemonSurvivor
 {
     public interface IHealth
     {

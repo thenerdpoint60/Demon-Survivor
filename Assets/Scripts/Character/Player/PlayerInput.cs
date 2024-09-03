@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class PlayerInput : MonoBehaviour
     {

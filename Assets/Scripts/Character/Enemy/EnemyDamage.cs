@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class EnemyDamage : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class SceneManager : MonoBehaviour
     {

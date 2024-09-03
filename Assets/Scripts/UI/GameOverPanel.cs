@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class GameOverPanel : MonoBehaviour
     {

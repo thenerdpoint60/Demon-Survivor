@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     [CreateAssetMenu(fileName = "SpawnData", menuName = "ScriptableObjects/SpawnData", order = 1)]
     public class SpawnDataSO : ScriptableObject

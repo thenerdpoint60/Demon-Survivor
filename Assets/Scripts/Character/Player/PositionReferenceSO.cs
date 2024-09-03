@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     [CreateAssetMenu(fileName = "PositionReference", menuName = "ScriptableObjects/PositionReference", order = 1)]
     public class PositionReferenceSO : ScriptableObject

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     [RequireComponent(typeof(Image))]
     public class HealthBar : MonoBehaviour

@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class EnemyHealth : CharacterHealth
     {

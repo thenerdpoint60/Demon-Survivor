@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     [System.Serializable]
     public class OptionUI : MonoBehaviour

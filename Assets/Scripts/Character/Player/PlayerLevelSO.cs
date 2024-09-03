@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     [CreateAssetMenu(fileName = "PlayerLevel", menuName = "ScriptableObjects/PlayerLevel", order = 1)]
     public class PlayerLevelSO : ScriptableObject

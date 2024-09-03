@@ -2,7 +2,7 @@ using DG.Tweening;
 using System;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class TopDownMovement : MonoBehaviour, IMovable, IMovableState
     {

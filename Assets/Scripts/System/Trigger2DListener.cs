@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class Trigger2DListener : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class PositionReferenceSetter : MonoBehaviour
     {

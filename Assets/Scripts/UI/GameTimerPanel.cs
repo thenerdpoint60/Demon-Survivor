@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class GameTimerPanel : MonoBehaviour
     {

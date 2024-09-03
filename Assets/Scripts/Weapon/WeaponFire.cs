@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class WeaponFire : MonoBehaviour
     {

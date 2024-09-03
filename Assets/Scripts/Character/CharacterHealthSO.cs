@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     [CreateAssetMenu(fileName = "CharacterHealth", menuName = "ScriptableObjects/CharacterHealth", order = 1)]
     public class CharacterHealthSO : ScriptableObject

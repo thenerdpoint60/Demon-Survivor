@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     public class GameUpgradePanel : MonoBehaviour
     {

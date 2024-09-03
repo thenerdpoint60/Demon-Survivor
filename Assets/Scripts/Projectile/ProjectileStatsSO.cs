@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace VampireSurvivor
+namespace DemonSurvivor
 {
     [CreateAssetMenu(fileName = "ProjectileStats", menuName = "ScriptableObjects/ProjectileStats", order = 1)]
     public class ProjectileStatsSO : ScriptableObject
