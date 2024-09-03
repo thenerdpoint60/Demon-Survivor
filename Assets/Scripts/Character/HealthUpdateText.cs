@@ -25,20 +25,20 @@ namespace VampireSurvivor
 
         public void DamageTaken(int damageValue)
         {
-            healthUpdateText.text = $"<color=red>-{damageValue}</color>";
+            healthUpdateText.text = $"<color=red>{damageValue}</color>";
             DisplayForSeconds();
         }
 
         public void HealTaken(int healValue)
         {
-            healthUpdateText.text = $"<color=green>+{healValue}</color>";
+            healthUpdateText.text = $"<color=green>{healValue}</color>";
             DisplayForSeconds();
         }
 
         private void DisplayForSeconds()
         {
             StopCoroutine(DisableTextOnDelay());
-            healthUpdateText.gameObject.SetActive(true);
+            SetTextVisibleState(true);
             Transform textTransform = healthUpdateText.transform;
             textTransform.localScale = currentScale;
             textTransform.DOScale(scaleUpFactor, animationDuration / 2)
@@ -52,7 +52,17 @@ namespace VampireSurvivor
         private IEnumerator DisableTextOnDelay()
         {
             yield return TextDisplayTimer;
-            healthUpdateText.gameObject.SetActive(false);
+            SetTextVisibleState(false);
+        }
+
+        private void OnDisable()
+        {
+            SetTextVisibleState(false);
+        }
+
+        private void SetTextVisibleState(bool state)
+        {
+            healthUpdateText.gameObject.SetActive(state);
         }
     }
 }
