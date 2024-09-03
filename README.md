@@ -51,10 +51,10 @@ Welcome to **Demon Survivor**, a thrilling top-down action game where you battle
 - **Description**: Bullets speed can help you attack far away enemy.
 - **Effect**: Increasing the speed will make the bullet travel longer distance.
 
-## Download
+## Play Game
 - [Windows](https://thenerdpoint60.itch.io/demon-surviour)
 
-## Getting Started
+## Getting Started With Project
 - Unity Version - 2022.3.39
 - Visual Studio 2022
 
