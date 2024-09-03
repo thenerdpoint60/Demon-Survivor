@@ -1,6 +1,6 @@
-# Vampire Survivor
+# Demon Survivor
 
-Welcome to **Vampire Survivor**, a thrilling top-down action game where you battle hordes of enemies, survive as long as possible, and upgrade your character to become a formidable vampire slayer.
+Welcome to **Demon Survivor**, a thrilling top-down action game where you battle hordes of enemies, survive as long as possible, and upgrade your character to become a formidable demon slayer.
 
 ## Features
 
@@ -12,16 +12,16 @@ Welcome to **Vampire Survivor**, a thrilling top-down action game where you batt
 
 ## Enemies
 
-### 1. Regular Vampires
+### 1. Regular Demons
 - **Behavior**: Swarm the player in large numbers. Individually weak, but dangerous in groups.
 - **Special Ability**: Slow movement but they win by numbers. Normal XP reward.
 
-### 2. Blood Zombies
-- **Behavior**: Slow but resilient, these zombies lumber towards you, absorbing lots of damage before they fall.
+### 2. Blood Demons
+- **Behavior**: Slow but resilient, these demon lumber towards you, absorbing lots of damage before they fall.
 - **Special Ability**: Faster movement but lessed in number. Medium XP reward.
 
-### 3. Dark Wraiths
-- **Behavior**: Few enemies but they absorb more damage then the player's health.
+### 3. Dark Wraiths Demon
+- **Behavior**: Few demons but they absorb more damage then the player's health.
 - **Special Ability**: Bigger XP reward.
 
 ## Level Up
