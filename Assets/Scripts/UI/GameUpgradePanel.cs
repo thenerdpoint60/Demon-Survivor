@@ -31,6 +31,7 @@ namespace VampireSurvivor
                 {
                     ToggleGamePauseState(false);
                     ToggleUpgradePanel(false);
+                    ClearTheUpgradeOptions();
                 });
             }
         }
@@ -47,9 +48,9 @@ namespace VampireSurvivor
 
         private IUpgradeOption GetRandomOption()
         {
-            int randomNumber = Random.Range(0, optionUIList.Count);
+            int randomNumber = Random.Range(0, upgradeOptions.Count);
             UpgradeOption upgradeOption = upgradeOptions[randomNumber];
-            if (!currentUpgradeOptions.Contains(upgradeOption))
+            if (!currentUpgradeOptions.Contains(upgradeOption) && !upgradeOption.IsThisUpgradeMaximized)
             {
                 currentUpgradeOptions.Add(upgradeOption);
             }
