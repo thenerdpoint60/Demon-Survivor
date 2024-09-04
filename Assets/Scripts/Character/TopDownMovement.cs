@@ -68,6 +68,9 @@ namespace DemonSurvivor
 
             movementTween.Kill();
             movementTween = null;
+
+            foreach (var listener in movementListeners)
+                listener.OnMovementStopped();
         }
     }
 }
