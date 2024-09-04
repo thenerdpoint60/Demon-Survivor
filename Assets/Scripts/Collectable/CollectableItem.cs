@@ -42,6 +42,7 @@ namespace DemonSurvivor
             StopScaleUpAnimation();
             Vector3 targetPosition = target.position;
 
+            audioSource.PlayOneShot(rewardClip);
             moveTween = transform.DOMove(targetPosition, moveDuration)
                .SetEase(moveEase)
                .OnComplete(() => OnCollectorTargetReached(onComplete));
@@ -57,9 +58,6 @@ namespace DemonSurvivor
 
         private void OnCollectorTargetReached(Action onComplete = null)
         {
-            if (rewardClip != null)
-                audioSource.PlayOneShot(rewardClip);
-
             onComplete?.Invoke();
             ReturnToPool();
         }
