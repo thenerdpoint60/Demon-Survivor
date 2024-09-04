@@ -2,7 +2,6 @@ using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using VampireSurvivor;
 
 namespace DemonSurvivor
 {
