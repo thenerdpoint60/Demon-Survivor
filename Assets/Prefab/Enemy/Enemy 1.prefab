@@ -716,7 +716,7 @@ MonoBehaviour:
   poolType: 1
   parentTransform: {fileID: 6273424703327921253}
   enemyAnimator: {fileID: 8345632688730986832}
-  enemyDeathRewards: 3
+  enemyDeathRewards: 6
   deadPlayAnimationDelayInSec: 0.8
 --- !u!82 &8715197137701385430
 AudioSource:
