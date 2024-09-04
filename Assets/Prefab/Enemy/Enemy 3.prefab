@@ -1070,6 +1070,7 @@ GameObject:
   - component: {fileID: 4189287243128332020}
   - component: {fileID: 7266081811965787647}
   - component: {fileID: 658606062475140042}
+  - component: {fileID: 4292364872819922980}
   m_Layer: 0
   m_Name: Enemy Movement
   m_TagString: Untagged
@@ -1122,9 +1123,9 @@ MonoBehaviour:
   characterRigidBody: {fileID: 580569116090694657}
   moveSpeed: 9
   ease: 1
-  animator: {fileID: 4990854233246173183}
   movementListeners:
   - {fileID: 658606062475140042}
+  - {fileID: 4292364872819922980}
 --- !u!114 &658606062475140042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,6 +1139,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterBody: {fileID: 4401746305922828243}
+--- !u!114 &4292364872819922980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071708464625385426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7658f5322c6901e4caeb4b673c54d8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 4990854233246173183}
 --- !u!1 &8385283347556399076
 GameObject:
   m_ObjectHideFlags: 0

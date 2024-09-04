@@ -11,7 +11,6 @@ namespace DemonSurvivor
         [SerializeField] private Rigidbody2D characterRigidBody;
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private Ease ease = Ease.Linear;
-        [SerializeField] private Animator animator;
         [SerializeField] private List<MovementListener> movementListeners;
 
         private Tweener movementTween;
@@ -61,10 +60,6 @@ namespace DemonSurvivor
 
             foreach (var listener in movementListeners)
                 listener.OnDestinationDirectionChanged(moveDirection);
-
-            //TODO : Refactor this animator from top down.
-            if (animator != null)
-                animator.SetBool("Moving", true);
         }
 
         public void StopMoving()
@@ -74,9 +69,6 @@ namespace DemonSurvivor
 
             movementTween.Kill();
             movementTween = null;
-
-            if (animator != null)
-                animator.SetBool("Moving", false);
         }
     }
 }
