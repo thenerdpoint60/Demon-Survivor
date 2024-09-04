@@ -16,7 +16,7 @@ namespace DemonSurvivor
         [SerializeField] private AudioClip weaponFireSfx;
 
         private float nextFireTime = 0f;
-        private List<Collider2D> targetColliders = new();
+        private List<Transform> nearestTargets = new();
         private bool pauseFiring;
 
         private void OnEnable()
@@ -39,12 +39,12 @@ namespace DemonSurvivor
             if (pauseFiring)
                 return;
 
-            if (Time.time >= nextFireTime && targetColliders.Count > 0)
+            if (Time.time >= nextFireTime && nearestTargets.Count > 0)
             {
-                Collider2D nearestTarget = FindNearestTarget();
+                Transform nearestTarget = FindNearestTarget();
                 if (nearestTarget != null)
                 {
-                    Fire(nearestTarget.transform.position);
+                    Fire(nearestTarget.position);
                     nextFireTime = Time.time + weaponStats.FireRate;
                 }
             }
@@ -71,33 +71,35 @@ namespace DemonSurvivor
 
         public void AddTarget(Collider2D target)
         {
-            if (!targetColliders.Contains(target))
+            Transform targetTransform = target.transform;
+            if (!nearestTargets.Contains(targetTransform))
             {
-                targetColliders.Add(target);
+                nearestTargets.Add(targetTransform);
             }
         }
 
         public void RemoveTarget(Collider2D target)
         {
-            if (targetColliders.Contains(target))
+            Transform targetTransform = target.transform;
+            if (nearestTargets.Contains(targetTransform))
             {
-                targetColliders.Remove(target);
+                nearestTargets.Remove(targetTransform);
             }
         }
 
-        private Collider2D FindNearestTarget()
+        private Transform FindNearestTarget()
         {
-            Collider2D nearestTarget = null;
+            Transform nearestTarget = null;
             float shortestDistance = Mathf.Infinity;
 
-            foreach (var target in targetColliders)
+            foreach (var target in nearestTargets)
             {
                 if (target == null)
                 {
                     continue;
                 }
 
-                float distance = Vector2.Distance(firePoint.position, target.transform.position);
+                float distance = Vector2.Distance(firePoint.position, target.position);
                 if (distance < shortestDistance)
                 {
                     shortestDistance = distance;
