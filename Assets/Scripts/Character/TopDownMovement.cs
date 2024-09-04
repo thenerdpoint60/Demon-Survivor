@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using VampireSurvivor;
 
 namespace DemonSurvivor
 {
@@ -10,18 +12,12 @@ namespace DemonSurvivor
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private Ease ease = Ease.Linear;
         [SerializeField] private Animator animator;
-        [SerializeField] private Transform characterBody;
+        [SerializeField] private List<MovementListener> movementListeners;
 
         private Tweener movementTween;
         private bool pauseMovement = false;
-        private Vector3 characterScale;
 
         public Vector2 CurrentPosition => characterRigidBody.position;
-
-        private void Awake()
-        {
-            characterScale = characterBody.localScale;
-        }
 
         private void OnEnable()
         {
@@ -63,14 +59,12 @@ namespace DemonSurvivor
 
             movementTween.ChangeEndValue(targetPosition, moveSpeed, true).Restart();
 
+            foreach (var listener in movementListeners)
+                listener.OnDestinationDirectionChanged(moveDirection);
+
             //TODO : Refactor this animator from top down.
             if (animator != null)
                 animator.SetBool("Moving", true);
-
-            if (moveDirection.x > 0)
-                FlipCharacter(1);
-            else
-                FlipCharacter(-1);
         }
 
         public void StopMoving()
@@ -83,12 +77,6 @@ namespace DemonSurvivor
 
             if (animator != null)
                 animator.SetBool("Moving", false);
-        }
-
-        private void FlipCharacter(int value)
-        {
-            characterScale.x = value;
-            characterBody.localScale = characterScale;
         }
     }
 }

@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 790267052560233873}
   - component: {fileID: 5711610884053986739}
   - component: {fileID: 6428516763246672869}
+  - component: {fileID: 4102603591487542327}
   m_Layer: 0
   m_Name: Player Movement
   m_TagString: Untagged
@@ -175,7 +176,8 @@ MonoBehaviour:
   moveSpeed: 11
   ease: 1
   animator: {fileID: 2296569154791352428}
-  characterBody: {fileID: 1583509189150879148}
+  movementListeners:
+  - {fileID: 4102603591487542327}
 --- !u!114 &6428516763246672869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionReference: {fileID: 11400000, guid: f346ac4f733323b46a18b09fadc90db1, type: 2}
+--- !u!114 &4102603591487542327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106574979009455002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423570a4a78d21d42a8db41f39505ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterBody: {fileID: 1583509189150879148}
 --- !u!1 &2946860559805606718
 GameObject:
   m_ObjectHideFlags: 0
