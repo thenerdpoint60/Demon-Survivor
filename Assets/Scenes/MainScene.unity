@@ -2759,13 +2759,13 @@ MonoBehaviour:
   - poolKey: 2
     prefab: {fileID: 6154900845547630542, guid: 2876b5dc3a109044f9dd1940c040d124, type: 3}
     initialSize: 20
-  - poolKey: 6
+  - poolKey: 3
     prefab: {fileID: 6276449041300208290, guid: d59a45d7f00977645a13e4537b04888e, type: 3}
     initialSize: 10
   - poolKey: 0
     prefab: {fileID: 5884379328155846235, guid: b8ed47bf4bcac5a4b9513c69f0127ae8, type: 3}
     initialSize: 30
-  - poolKey: 3
+  - poolKey: 6
     prefab: {fileID: 863020067778182794, guid: bb050ba08312a3e4381e7e072ad57d0a, type: 3}
     initialSize: 30
   - poolKey: 7

@@ -8,10 +8,10 @@ namespace DemonSurvivor
         Projectile,
         Enemy1,
         Enemy2,
-        XP,
+        Enemy3,
         SmallHealth,
         BigHealth,
-        Enemy3,
+        XP,
         MediumXP,
         LargeXP
     }

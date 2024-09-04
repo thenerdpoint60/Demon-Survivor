@@ -298,4 +298,4 @@ MonoBehaviour:
   scaleUpFactor: 1.2
   animationDuration: 0.5
   ease: 1
-  rewardType: 3
+  rewardType: 6
